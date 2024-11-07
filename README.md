@@ -1,9 +1,9 @@
 # Fork-pool_CurrentSkipListSet
 
 ### Componentes:
-Francisco Manuel de Céspedes Díaz
-Guillermo Robles López
-Ismael Maqnine Martínez
+- Francisco Manuel de Céspedes Díaz
+- Guillermo Robles López
+- Ismael Maqnine Martínez
 
 ### Estructura concurrente:
 - Fork-pool
