@@ -1,4 +1,4 @@
-# Fork-pool_CurrentSkipListSet
+# Katamiro
 
 ### Componentes:
 - Francisco Manuel de Céspedes Díaz
