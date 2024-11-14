@@ -2,6 +2,9 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Guide class
+ */
 public class Restaurante {
 
     private Queue<String> colaClientes = new ConcurrentLinkedQueue<>(); // Cambiamos a ConcurrentLinkedQueue
