@@ -4,7 +4,13 @@
  */
 public class Katamiro {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Kitchen laPacoKitchen = new Kitchen("La Paco Kitchen");
+        Waiter paquet = new Waiter("Paco", laPacoKitchen);
+        Waiter isma = new Waiter("Isma", laPacoKitchen);
+        Waiter guille = new Waiter("Guille", laPacoKitchen);
 
+        laPacoKitchen.addWaiters(paquet);
+        laPacoKitchen.addWaiters(isma);
+        laPacoKitchen.addWaiters(guille);
     }
 }

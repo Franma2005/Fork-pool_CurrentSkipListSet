@@ -22,8 +22,8 @@ public class Kitchen {
      * @param kitchenName
      */
     public Kitchen(String kitchenName) {
-        colaClientes = new ConcurrentLinkedQueue<>();
         this.kitchenName = kitchenName;
+        colaClientes = new ConcurrentLinkedQueue<>();
         waiters = new ArrayList<>();
     }
 
@@ -37,10 +37,9 @@ public class Kitchen {
 
     /**
      * Method which allow us to obtain the first client in the queue
-     * @param client
      */
-    public void attendCliente(Client client) {
-        colaClientes.poll();
+    public Client attendCliente() {
+        return colaClientes.poll();
     }
 
     /**
@@ -57,5 +56,9 @@ public class Kitchen {
      */
     public void setKitchenName(String kitchenName) {
         this.kitchenName = kitchenName;
+    }
+
+    public void addWaiters(Waiter waiter) {
+        waiters.add(waiter);
     }
 }
