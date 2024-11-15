@@ -29,6 +29,7 @@ public class Katamiro {
                         System.out.println("Camarero 1 atendiendo a " + cliente.getName() + " durante " + tiempoAtencion + "ms.");
                         Thread.sleep(tiempoAtencion); // Simula el tiempo de atención aleatorio
                         System.out.println("Camarero 1 termina de atender a: " + cliente.getName());
+                        Thread.sleep(3000);
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
@@ -44,11 +45,6 @@ public class Katamiro {
         });
         Thread camarero2 = new Thread(() -> {
             while (true) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
                 Client cliente = cocina1.attendCliente();
                 if (cliente != null) { // Solo atender si hay cliente
                     try {
@@ -56,6 +52,7 @@ public class Katamiro {
                         System.out.println("Camarero 2 atendiendo a " + cliente.getName() + " durante " + tiempoAtencion + "ms.");
                         Thread.sleep(tiempoAtencion); // Simula el tiempo de atención aleatorio
                         System.out.println("Camarero 2 termina de atender a: " + cliente.getName());
+                        Thread.sleep(3000);
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
