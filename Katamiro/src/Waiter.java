@@ -14,13 +14,13 @@ public class Waiter extends Thread {
 
     @Override
     public void run() {
-        System.out.println("The waiter " + name + " begins to attend to the kitchen " + kitchen);
+        System.out.println("The waiter " + name + " begins to attend to the kitchen " + kitchen.getKitchenName());
         while (true) {
             client = kitchen.attendCliente();
             if (client != null) {
                 try {
 
-                    System.out.println("The waiter " + name + " begins to attend the client " + client);
+                    System.out.println("The waiter " + name + " begins to attend the client " + client.getName());
                     Thread.sleep(client.getAttention_time());
                     System.out.println(name + " termina de atender a: " + client.getName());
                 } catch (InterruptedException exception) {
