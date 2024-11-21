@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * Kitchen is a class who management
@@ -8,6 +9,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class Kitchen {
     private String kitchenName;
     private Queue<Client> colaClientes;
+    /**
+     * Se necesita añadir un atributo paciencia al cliente.
+     */
 
     /**
      * Default constructor
@@ -48,6 +52,7 @@ public class Kitchen {
         return kitchenName;
     }
 
+
     /**
      * Setter of kitchenName
      * @param kitchenName
@@ -56,4 +61,11 @@ public class Kitchen {
         this.kitchenName = kitchenName;
     }
 
+    /**
+     * Metodo que devuelve la cola de clientes de la cocina y tal
+     * @return Queue<Client>
+     */
+    public Queue<Client> getColaClientes() {
+        return colaClientes;
+    }
 }

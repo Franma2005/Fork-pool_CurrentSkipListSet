@@ -12,14 +12,17 @@ public class Katamiro {
          */
         ArrayList<Waiter> waiters = new ArrayList<>();
         ArrayList<Kitchen> kitchens = new ArrayList<>();
-
+        /**
+         * Mientras el hilo esté vivo va a estas constantemente asignando los cocineros a cualquier cocina.
+         */
+        //while (Thread.currentThread().isAlive())
         kitchens.add(new Kitchen("laPacoKitchen"));
         kitchens.add(new Kitchen("laGuilleKitchen"));
         kitchens.add(new Kitchen("laIsmaKitchen"));
 
-        Waiter paquet = new Waiter("Paco", Funciones.getRandomList(kitchens));
-        Waiter isma = new Waiter("Isma", Funciones.getRandomList(kitchens));
-        Waiter guille = new Waiter("Guille", Funciones.getRandomList(kitchens));
+        Waiter paquet = new Waiter("Paco", kitchens);
+        Waiter isma = new Waiter("Isma", kitchens);
+        Waiter guille = new Waiter("Guille", kitchens);
 
         Client client1 = new Client("client1");
         Client client2 = new Client("client2");

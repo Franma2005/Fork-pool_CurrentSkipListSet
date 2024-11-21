@@ -5,9 +5,10 @@ import java.util.concurrent.ThreadLocalRandom;
  * In this class we put basic information about the customer. The most important
  * thing is the time it takes for a waiter to process it
  */
-public class Client {
+public class Client  {
     private String name;
     private int attention_time;
+    private boolean atendido = false;
 
     /**
      * Default Constructor. Maybe we remove it in future
@@ -29,15 +30,18 @@ public class Client {
      * Getter name
      * @return name, String which contains the name of the client
      */
-    public String getName() {
+    public String getClientName() {
         return name;
     }
 
     /**
      * Setter name
-     * @param name
+     * @param
      */
-    public void setName(String name) {
+    public void setAtendido(){
+        this.atendido = true;
+    }
+    public void setClientName(String name) {
         this.name = name;
     }
 
@@ -56,4 +60,6 @@ public class Client {
     public void setAttention_time(int attention_time) {
         this.attention_time = attention_time;
     }
+
+
 }

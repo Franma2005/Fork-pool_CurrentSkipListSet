@@ -1,33 +1,56 @@
+import java.util.ArrayList;
+
 /**
  * Already not implement. We are sure it must be a Thread
  */
 public class Waiter extends Thread {
     private String name;
     private Client client;
-    private Kitchen kitchen;
+    private ArrayList<Kitchen> kitchens;
 
-    public Waiter(String name, Kitchen kitchen) {
+    public Waiter(String name, ArrayList<Kitchen> kitchens) {
         this.name = name;
-        this.kitchen = kitchen;
+        this.kitchens = kitchens;
         client = null;
     }
 
     @Override
     public void run() {
-        System.out.println("The waiter " + name + " begins to attend to the kitchen " + kitchen.getKitchenName());
+        Kitchen kitchenAttend = Funciones.getRandomList(kitchens); // Le asignamos la primera  cocina al camarero
+        /**
+         * Imprimimos el nombre del camarero, a qué cocina ha ido a atender y cuántos clietes hay en ésta
+         */
+        System.out.println("El camarero "+name+" ha ido a atender a la cocina "+kitchenAttend.getKitchenName()+" cantidad de clientes: "+kitchenAttend.getColaClientes().size());
+        /**
+         * Bucle infinito
+         */
         while (true) {
-            client = kitchen.attendCliente();
+            // Si el camarero ve que no hay clientes en la cocina, va a ayudar a otra para mejorar la eficiencia.
+            while (kitchenAttend.getColaClientes().isEmpty()) {
+                System.out.println("la cocina " + kitchenAttend.getKitchenName() + " no tiene clientes. El camarero " + name + " busca otra cocina aleatoria.");
+
+                Kitchen previousKitchen = kitchenAttend; // He creado una variable kitchen para guardar en qué cocina estaba antes de asignarle una nueva
+                kitchenAttend = Funciones.getRandomList(kitchens); // Al camarero se le asigna una nueva cocina
+
+                // Ahora compruebo si la cocina que se le ha asignado al camarero no es igual a la anterior (si hay sólo una cocina el valor de esta condición será false)
+                if (kitchens.size() > 1 && kitchenAttend == previousKitchen) {
+                    continue;
+                }
+
+                System.out.println("El camarero " + name + " cambia a la cocina " + kitchenAttend.getKitchenName());
+            }
+
+            // Y ahora el camarero atiende al cliente que haya en la cocina :)
+            client = kitchenAttend.attendCliente();
             if (client != null) {
                 try {
-
-                    System.out.println("The waiter " + name + " begins to attend the client " + client.getName());
+                    System.out.println("El camarero " + name + " atiende al cliente " + client.getClientName());
                     Thread.sleep(client.getAttention_time());
-                    System.out.println(name + " termina de atender a: " + client.getName());
-                } catch (InterruptedException exception) {
+                    System.out.println("El camarero " + name + " terminó de atender al cliente " + client.getClientName());
+                } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
             }
-
         }
     }
 }
