@@ -1,14 +1,25 @@
+import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
 /**
  * The main class of our program. In the main we have to send the client to different Kitchen and create instance
  * of all the class
  */
 public class Katamiro {
     public static void main(String[] args) {
-        Kitchen laPacoKitchen = new Kitchen("La Paco Kitchen");
+        /**
+         * Las cocinas y los camareros serán un Arraylist
+         */
+        ArrayList<Waiter> waiters = new ArrayList<>();
+        ArrayList<Kitchen> kitchens = new ArrayList<>();
 
-        Waiter paquet = new Waiter("Paco", laPacoKitchen);
-        Waiter isma = new Waiter("Isma", laPacoKitchen);
-        Waiter guille = new Waiter("Guille", laPacoKitchen);
+        kitchens.add(new Kitchen("laPacoKitchen"));
+        kitchens.add(new Kitchen("laGuilleKitchen"));
+        kitchens.add(new Kitchen("laIsmaKitchen"));
+
+        Waiter paquet = new Waiter("Paco", Funciones.getRandomList(kitchens));
+        Waiter isma = new Waiter("Isma", Funciones.getRandomList(kitchens));
+        Waiter guille = new Waiter("Guille", Funciones.getRandomList(kitchens));
 
         Client client1 = new Client("client1");
         Client client2 = new Client("client2");
@@ -21,20 +32,18 @@ public class Katamiro {
         Client client9 = new Client("client9");
         Client client10 = new Client("client10");
 
-        laPacoKitchen.addCliente(client1);
-        laPacoKitchen.addCliente(client2);
-        laPacoKitchen.addCliente(client3);
-        laPacoKitchen.addCliente(client4);
-        laPacoKitchen.addCliente(client5);
-        laPacoKitchen.addCliente(client6);
-        laPacoKitchen.addCliente(client7);
-        laPacoKitchen.addCliente(client8);
-        laPacoKitchen.addCliente(client9);
-        laPacoKitchen.addCliente(client10);
+        Funciones.getRandomList(kitchens).addCliente(client1);
+        Funciones.getRandomList(kitchens).addCliente(client2);
+        Funciones.getRandomList(kitchens).addCliente(client3);
+        Funciones.getRandomList(kitchens).addCliente(client4);
+        Funciones.getRandomList(kitchens).addCliente(client5);
+        Funciones.getRandomList(kitchens).addCliente(client6);
+        Funciones.getRandomList(kitchens).addCliente(client7);
+        Funciones.getRandomList(kitchens).addCliente(client8);
+        Funciones.getRandomList(kitchens).addCliente(client9);
+        Funciones.getRandomList(kitchens).addCliente(client10);
 
-        laPacoKitchen.addWaiters(paquet);
-        laPacoKitchen.addWaiters(isma);
-        laPacoKitchen.addWaiters(guille);
+
 
         paquet.start();
         isma.start();

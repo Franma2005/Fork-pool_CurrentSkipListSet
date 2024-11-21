@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class Kitchen {
     private String kitchenName;
     private Queue<Client> colaClientes;
-    private ArrayList<Waiter> waiters;
 
     /**
      * Default constructor
@@ -24,7 +23,6 @@ public class Kitchen {
     public Kitchen(String kitchenName) {
         this.kitchenName = kitchenName;
         colaClientes = new ConcurrentLinkedQueue<>();
-        waiters = new ArrayList<>();
     }
 
     /**
@@ -58,7 +56,4 @@ public class Kitchen {
         this.kitchenName = kitchenName;
     }
 
-    public void addWaiters(Waiter waiter) {
-        waiters.add(waiter);
-    }
 }
