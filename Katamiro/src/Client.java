@@ -9,7 +9,7 @@ public class Client{
 
     public Client(String name) {
         this.name = name;
-        this.attention_time = ThreadLocalRandom.current().nextInt(3000, 8000 + 1);
+        this.attention_time = ThreadLocalRandom.current().nextInt(3000, 25000 + 1);
     }
 
     public String getName() {
