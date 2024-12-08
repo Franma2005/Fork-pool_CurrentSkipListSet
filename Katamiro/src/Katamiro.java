@@ -31,7 +31,7 @@ public class Katamiro {
         while(true){
                 Funciones.getRandomList(kitchens).addCliente(new Client("client " + i));
                 i++;
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1500, 2500 + 1));
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1700, 2500 + 1));
         }
     }
 }
