@@ -26,11 +26,12 @@ public class Katamiro {
         paquet.start();
         isma.start();
         guille.start();
+
         int i= 1;
         while(true){
                 Funciones.getRandomList(kitchens).addCliente(new Client("client " + i));
                 i++;
-                Thread.sleep(ThreadLocalRandom.current().nextInt(1000, 2500 + 1));
+                Thread.sleep(ThreadLocalRandom.current().nextInt(1500, 2500 + 1));
         }
     }
 }
