@@ -8,7 +8,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Client  {
     private String name;
     private int attention_time;
-    private boolean atendido = false;
 
     /**
      * Default Constructor. Maybe we remove it in future
@@ -38,9 +37,6 @@ public class Client  {
      * Setter name
      * @param
      */
-    public void setAtendido(){
-        this.atendido = true;
-    }
     public void setClientName(String name) {
         this.name = name;
     }

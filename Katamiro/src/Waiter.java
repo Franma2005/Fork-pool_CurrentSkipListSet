@@ -5,13 +5,11 @@ import java.util.ArrayList;
  */
 public class Waiter extends Thread {
     private String name;
-    private Client client;
     private ArrayList<Kitchen> kitchens;
 
     public Waiter(String name, ArrayList<Kitchen> kitchens) {
         this.name = name;
         this.kitchens = kitchens;
-        client = null;
     }
 
     @Override
@@ -41,16 +39,20 @@ public class Waiter extends Thread {
             }
 
             // Y ahora el camarero atiende al cliente que haya en la cocina :)
-            client = kitchenAttend.attendCliente();
-            if (client != null) {
+            Client client1 = kitchenAttend.attendCliente();
+            if (client1 != null) {
                 try {
-                    System.out.println("El camarero " + name + " atiende al cliente " + client.getClientName());
-                    Thread.sleep(client.getAttention_time());
-                    System.out.println("El camarero " + name + " terminó de atender al cliente " + client.getClientName());
+                    System.out.println("El camarero " + name + " atiende al cliente " + client1.getClientName() + ", " + kitchenAttend.getKitchenName());
+                    Thread.sleep(client1.getAttention_time());
+                    System.out.println("El camarero " + name + " terminó de atender al cliente " + client1.getClientName());
+                    Thread.sleep(2000);
+                    kitchenAttend = Funciones.getRandomList(kitchens);
+                    System.out.println("El camarero " + name + " cambia a la cocina " + kitchenAttend.getKitchenName());
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                 }
             }
+
         }
     }
 }
