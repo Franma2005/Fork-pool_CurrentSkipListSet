@@ -21,6 +21,6 @@ Los elementos se procesan en el orden en que fueron insertados.
 #### Hilos seguros (Thread-safe):
 Varios hilos pueden añadir o eliminar elementos simultáneamente sin causar problemas de inconsistencia.
 #### Métodos de interés:
--offer(E e): Añade un elemento al final de la cola.
--poll(): Retira y devuelve el primer elemento de la cola, o devuelve null si está vacía.
--peek(): Devuelve el primer elemento sin retirarlo, o null si está vacía.
+- offer(E e): Añade un elemento al final de la cola.
+- poll(): Retira y devuelve el primer elemento de la cola, o devuelve null si está vacía.
+- peek(): Devuelve el primer elemento sin retirarlo, o null si está vacía.
