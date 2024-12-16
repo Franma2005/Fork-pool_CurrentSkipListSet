@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -7,11 +8,11 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Katamiro {
     public static void main(String[] args) throws InterruptedException {
-        InterfazCocinas.createMenuKitchen();
         /**
          * Las cocinas y los camareros serán un Arraylist
          */
         ArrayList<Kitchen> kitchens = new ArrayList<>();
+        ArrayList<Waiter> waiters = new ArrayList<>();
         /**
          * Mientras el hilo esté vivo va a estas constantemente asignando los cocineros a cualquier cocina.
          */
@@ -22,7 +23,11 @@ public class Katamiro {
         Waiter paquet = new Waiter("Paco", kitchens);
         Waiter isma = new Waiter("Isma", kitchens);
         Waiter guille = new Waiter("Guille", kitchens);
+        waiters.add(paquet);
+        waiters.add(isma);
+        waiters.add(guille);
 
+        InterfazCocinas.createMenuKitchen(waiters);
         paquet.start();
         isma.start();
         guille.start();

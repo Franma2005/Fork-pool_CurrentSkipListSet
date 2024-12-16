@@ -1,8 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class InterfazCocinas {
-    public static void createMenuKitchen() {
+    public static void createMenuKitchen(ArrayList<Waiter> waiters) {
         // Establecer el estilo Nimbus
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -25,26 +26,13 @@ public class InterfazCocinas {
             JPanel panel = new JPanel(new GridLayout(1, 3, 10, 10));
 
             // Configurar los JTextAreas
-            JTextArea textArea1 = new JTextArea();
-            JTextArea textArea2 = new JTextArea();
-            JTextArea textArea3 = new JTextArea();
-
-            textArea1.setEditable(false);
-            textArea2.setEditable(false);
-            textArea3.setEditable(false);
-            textArea1.setText("Guille Kitchen");
-            textArea2.setText("Paquet Kitchen");
-            textArea3.setText("Isma Kitchen");
-
-            // Hacer que las áreas de texto sean desplazables
-            JScrollPane scroll1 = new JScrollPane(textArea1);
-            JScrollPane scroll2 = new JScrollPane(textArea2);
-            JScrollPane scroll3 = new JScrollPane(textArea3);
-
-            // Agregar las áreas de texto al panel
-            panel.add(scroll1);
-            panel.add(scroll2);
-            panel.add(scroll3);
+            for (Waiter waiter : waiters) {
+                JTextArea textArea = waiter.getTextArea();
+                JScrollPane scroll = new JScrollPane(textArea);
+                textArea.setEditable(false);
+                textArea.setText(waiter.getname());
+                panel.add(scroll);
+            }
 
             // Agregar el panel a la ventana principal
             frame.add(panel);
