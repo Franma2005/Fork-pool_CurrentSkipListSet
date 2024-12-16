@@ -7,6 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Katamiro {
     public static void main(String[] args) throws InterruptedException {
+        InterfazCocinas.createMenuKitchen();
         /**
          * Las cocinas y los camareros serán un Arraylist
          */
@@ -14,7 +15,6 @@ public class Katamiro {
         /**
          * Mientras el hilo esté vivo va a estas constantemente asignando los cocineros a cualquier cocina.
          */
-        //while (Thread.currentThread().isAlive())
         kitchens.add(new Kitchen("laPacoKitchen"));
         kitchens.add(new Kitchen("laGuilleKitchen"));
         kitchens.add(new Kitchen("laIsmaKitchen"));

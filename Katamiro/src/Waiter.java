@@ -6,11 +6,15 @@ import java.util.ArrayList;
 public class Waiter extends Thread {
     private String name;
     private ArrayList<Kitchen> kitchens;
+    private int customersServed = 0;
 
     public Waiter(String name, ArrayList<Kitchen> kitchens) {
         this.name = name;
         this.kitchens = kitchens;
     }
+
+    public int getCustomersServed() {return customersServed;}
+    public String getname() {return name;}
 
     @Override
     public void run() {
@@ -51,7 +55,8 @@ public class Waiter extends Thread {
                 try {
                     System.out.println("El camarero " + name + " atiende al cliente " + client1.getClientName() + ", " + kitchenAttend.getKitchenName());
                     Thread.sleep(client1.getAttention_time());
-                    System.out.println("El camarero " + name + " terminó de atender al cliente " + client1.getClientName());
+                    customersServed++;
+                    System.out.println("El camarero " + name + " terminó de atender al cliente " + client1.getClientName() + ", ha atendido a " + customersServed + " clientes.");
                     Thread.sleep(2000);
                     kitchenAttend = Funciones.getRandomList(kitchens);
                     System.out.println("El camarero " + name + " cambia a la cocina " + kitchenAttend.getKitchenName());
